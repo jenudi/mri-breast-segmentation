@@ -1,12 +1,13 @@
 # MRI Breast Segmentation
-End-to-end pipeline for breast tissue segmentation from 3D MRI scans, including
-preprocessing, deep-learning–based segmentation, and quantitative analysis.
+End-to-end pipeline for breast MRI analysis, including tissue segmentation, tumor candidate extraction, quantitative feature computation, and exploratory clinical correlation.
 
 
 ## Overview
 This project implements an end-to-end workflow for analyzing 3D breast MRI scans.
 The pipeline performs breast tissue segmentation using a U-Net–based model,
 followed by quantitative feature extraction and exploratory analysis.
+
+Segmentation outputs are further processed to derive tumor candidate regions, from which imaging features are computed and analyzed in conjunction with available clinical metadata.
 
 The focus is on building a clear, reproducible medical-imaging pipeline rather
 than optimizing for maximum model accuracy.
@@ -18,6 +19,7 @@ and intermediate results, see the accompanying Jupyter notebook.
 - [Qualitative Segmentation Results](#qualitative-inference-visualization)  
 - [Mask alignment](#mask-alignment)
 - [Dice vs. Threshold](#dice-vs-threshold)
+- [Full inference pipeline: breast mask → tumor candidate → features](#full-inference-pipeline-breast-mask-to-tumor-candidate-to-features)
 
 
 ## Datasets
@@ -508,7 +510,7 @@ Example segmentation results are shown below.
 
 ---
 
-## Full Inference Pipeline: Breast Mask → Tumor Candidate → Features
+## Full Inference Pipeline: Breast Mask to Tumor Candidate to Features
 
 This stage applies the trained model to **unseen test scans** and produces:
 1. A **3D breast segmentation mask**
