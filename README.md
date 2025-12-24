@@ -530,7 +530,7 @@ Each test scan is processed as follows:
   - Resize + pad to `(512 × 512)`
   - Z-score normalization
 - The trained **2D U-Net** predicts a probability map per slice
-- Probabilities are thresholded (e.g. `τ = 0.95`)
+- Probabilities are thresholded (e.g. `τ = best_th`)
 - Predicted masks are mapped back to the **original slice resolution**
 - All slices are stacked to form a **3D breast mask** `(H, W, Z)`
 
